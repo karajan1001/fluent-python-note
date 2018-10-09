@@ -30,3 +30,5 @@
 * [Chapter 14 Iterables, Iterators, and Generators](PARTV/chapter14.md)
 * [Chapter 15 Context Managers and else Blocks](PARTV/chapter15.md)
 * [Chapter 16 Coroutines](PARTV/chapter16.md)
+* [Chapter 17 Concurrency with Futures](PARTV/chapter17.md)
+* [Chapter 18 CHAPTER 18 Concurrency with asyncio](PARTV/chapter18.md)
