@@ -30,3 +30,32 @@
 
 线程因为调度是系统完成可以随时打断，所以需要对数据加锁保证数据安全。而协程的调度是自己控制，同时只有一个任务运行，取消时必定处于yield from等待状态。
 
+### asyncio.Future: Nonblocking by Design
+
+两个`Future`包实现的接口类似，但是两者实现的原理不同，所以无法互换。Future 都是表示一个未来执行的代码。不过`asyncio`输入协程，返回一个task。task的暂停时候用`yield from`返回中间结果, 将控制权返还给event\_loop。
+
+### Yielding from Futures, Tasks, and Coroutines
+有两种方式生成task
+```python
+asyncio.async(coro_or_future, *, loop=None)
+BaseEventLoop.create\_task(coro)
+```
+
+## Downloading with asyncio and aiohttp
+
+asyncio官方网络请求只支持`tcp`和`udp`模式, 我们需要借助第三方库来实现http请求。需要注意点为：
+
+```python
+# 需要异步的函数使用协程。
+@asyncio.coroutine 
+def get_flag(cc): 
+    resp = yield from aiohttp.request('GET', url) # http请求用aiohttp
+
+to_do = [download_one(cc) for cc in sorted(cc_list)]  # 任务协程列表
+wait_coro = asyncio.wait(to_do) # 一个协程，只有在所有任务结束后才会结束
+res, _ = loop.run_until_complete(wait_coro) # 开始运行，返回结果为已完成的协程和未完成的协程。
+loop.close()  # 关闭event loop
+```
+> 这里要注意我们并没有创建一个协程，然后最后关闭，仅仅获得了一个它的引用，所以不应该使用`contentmanager`和`with`来开启和关闭它。
+
+
