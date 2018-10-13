@@ -58,4 +58,40 @@ loop.close()  # 关闭event loop
 ```
 > 这里要注意我们并没有创建一个协程，然后最后关闭，仅仅获得了一个它的引用，所以不应该使用`contentmanager`和`with`来开启和关闭它。
 
+## Running Circling Around Blocking Calls
+
+运算时间对比如下所示:
+
+| Device | L1  cache | L2 cache | RAM |  disk | network |
+|:---:|:---:|:---:|:---:|:---:|:---:|
+| CPU cycles | 3 | 14 | 250 | 41,000,000 |  240,000,000 |
+| Proportional “human” scale | 3 seconds | 14 seconds | 250 seconds | 1.3 years | 7.6 years  |
+
+为了防止IO堵塞线程，有两种方法：
+1. 开启单独的线程读写IO。
+2. 使用非阻塞性异步调用。
+
+传统异步编程使用回调函数的方式进行。异步内容注册一个回调函数，然后在for loop 中等待事件的发生。事件发生后使用回调函数处理相应的数据。而在协程的for loop中，使用协程的`.send()`与传统的回调函数其实是一样的。而且协程可以避免地狱（下文中会提到）。
+
+> 目前asyncio没有提供异步文件读写，如果要达到最大性能，需要启动线程池来进行文件读写工作。
+
+## Enhancing the asyncio downloader Script
+
+ 虽然异步和多线程并发在下载任务上总耗时差别不大，但是因为异步并发更高所以更容易被当成dos攻击。
+
+### Using asyncio.as\_completed
+`asyncio.Semaphore`可以用来控制并发总量。可以通过锁来控制同时启动并发数。`.acqure`会加一而`.release`减一。当锁数量为0时就会阻塞。
+```python
+semaphore = asyncio.Semaphore(concur_req) # 初始化 
+with (yield from semaphore): # 自动加减锁
+     image = yield from get_flag(base_url, cc)
+```
+
+要用tqdm来进展的话，需要将整个函数包装成一个协程。这样loop的时候tqdm才会不断更新进展。
+```python
+to_do_iter = asyncio.as_completed(to_do)  # 获取完成结果的生成器
+to_do_iter = tqdm.tqdm(to_do_iter, total=len(cc_list)) # 更新完成结果
+```
+
+### Using an Executor to Avoid Blocking the Event Loop
 

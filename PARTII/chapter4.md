@@ -119,6 +119,6 @@ sorted_fruits = sorted(fruits, key=coll.sort_key)
 format(unicodedata.numeric(char), '5.2f') # 其中数字那一列
 ```
 
-![bd804bade1c97e36b7d828c928fabd60.png](evernotecid://60614192-C7C5-4611-9CAC-5D15AB1BE3D8/appyinxiangcom/7169492/ENResource/p13375)
+![char\_type.png](char_type.png)
 
 ## Dual-Mode str and bytes APIs

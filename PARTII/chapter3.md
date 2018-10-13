@@ -1,7 +1,7 @@
 # CHAPTER 3 Dictionaries and Sets
 ## Generic Mapping Types
 
-![dd567178b6ad29c25e110cd1a7c4a3e1.png](evernotecid://60614192-C7C5-4611-9CAC-5D15AB1BE3D8/appyinxiangcom/7169492/ENResource/p13373)
+![mapping\_type.png](mapping_type.png)
 
 
 Dict 类型的key必须可以 hash
@@ -72,7 +72,7 @@ mappingproxy({1: 'A'})
 >>> from dis import dis >>> dis('{1}')
 ```
 
-![68002970f036d2595b69087294ed7150.png](evernotecid://60614192-C7C5-4611-9CAC-5D15AB1BE3D8/appyinxiangcom/7169492/ENResource/p13374)
+![set\_type.png](set_type.png)
 
 ## dict and set Under the Hood
 
