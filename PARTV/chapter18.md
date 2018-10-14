@@ -1,6 +1,6 @@
 # CHAPTER 18 Concurrency with asyncio
 
-并发是指的同时处理很多事情，并行是指的同时进行很多运算。两者有一定的关联，但是不完全一样。并发是架构层面上的，并行是执行层面上的。本章介绍`asyncio`一种使用事件循环驱动的并发包。
+并发是指的同时处理很多事情，并行是指的同时进行很多运算。两者有一定的关联，但是不完全一样。并发是架构层面上的，并行是执行层面上的。本章介绍`asyncio`一种使用事件循环驱动的并发包。本章可以结合[500 lines 中的协程爬虫案例](http://www.aosabook.org/en/500L/a-web-crawler-with-asyncio-coroutines.html)一起看
 
 本章的重点：
 - 比较单线程程序和异步程序。
@@ -94,4 +94,17 @@ to_do_iter = tqdm.tqdm(to_do_iter, total=len(cc_list)) # 更新完成结果
 ```
 
 ### Using an Executor to Avoid Blocking the Event Loop
+
+文件读写也会阻塞IO，一个解决方案是使用executor来执行文件IO。
+
+```python
+loop = asyncio.get_event_loop()  # 获得当前的event loop 的引用
+loop.run_in_executor(None, save_flag, image, cc.lower() + '.gif') # 第一个参数是执行线程，如果没有则从默认线程池中抽取一个线程。
+```
+
+## From Callbacks to Futures and Coroutines
+本节对比协程和回调函数，回调函数处理异常非常麻烦，因为函数返回后清空了所有信息，而结果返回时如果出错难以复原当时的场景。
+
+### Doing Multiple Requests for Each Download
+
 
