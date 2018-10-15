@@ -106,5 +106,12 @@ loop.run_in_executor(None, save_flag, image, cc.lower() + '.gif') # 第一个参
 本节对比协程和回调函数，回调函数处理异常非常麻烦，因为函数返回后清空了所有信息，而结果返回时如果出错难以复原当时的场景。
 
 ### Doing Multiple Requests for Each Download
+异步编程的主要挑战是需要知道何时该用`yield from`何时不需要用。实际上很简单，如果函数是个协程就用`yield from`。并且将包含`yield from`的函数加上`@asyncio.coroutine`
 
+## Writing asyncio Servers
+
+### An asyncio TCP Server
+更底层实现可以参考[Transports and Protocols API](https://docs.python.org/3/library/asyncio-protocol.html)
+
+### An aiohttp Web Server
 

@@ -19,7 +19,7 @@ goose typing 和 duck typing
 
 ### ABCs in collections.abc
 
-![c126497e23740d60f2d0191a9d840866.png](evernotecid://60614192-C7C5-4611-9CAC-5D15AB1BE3D8/appyinxiangcom/7169492/ENResource/p13376)
+![abc.jpg](abc.jpg)
 
 
 ### The Numbers Tower of ABCs

@@ -31,11 +31,11 @@ def __radd__(self, other):
 ## Overloading * for Scalar Multiplication
 和 + 类似
 
-![3836a49ccf025f255280351292e17337.png](evernotecid://60614192-C7C5-4611-9CAC-5D15AB1BE3D8/appyinxiangcom/7169492/ENResource/p13379)
+![overloading.jpg](eoverloading.jpg)
 
 ## Rich Comparison Operators
 
-![eb79cbede60f94db525d29dbd6e915b0.png](evernotecid://60614192-C7C5-4611-9CAC-5D15AB1BE3D8/appyinxiangcom/7169492/ENResource/p13380)
+![rich\_comparison.jpg](rich_comparison.jpg)
 
 
 ## Augmented Assignment Operators

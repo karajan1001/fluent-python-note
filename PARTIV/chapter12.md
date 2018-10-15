@@ -11,7 +11,7 @@
 ## Multiple Inheritance and Method Resolution Order
 任何多继承语言都要考虑多个父类中相同名称方法的问题。这个问题如下图又被成为**钻石问题（diamond problem）**
 
-![2280515e6b7460d05dca9e8a843b4dc5.png](evernotecid://60614192-C7C5-4611-9CAC-5D15AB1BE3D8/appyinxiangcom/7169492/ENResource/p13377)
+![diamond\_problem.jpg](diamond_problem.jpg)
 
 
 python中的先后顺序如上图，此顺序又叫MRO顺序，在**cls.\_\_mro\_\_**中有写明。对于缺失的方法会按照MRO顺序检查。super()方法会取得MRO顺序中的父类。
@@ -19,7 +19,7 @@ python中的先后顺序如上图，此顺序又叫MRO顺序，在**cls.\_\_mro\
 
 ## Multiple Inheritance in the Real World
 
-![c238a34b4726bbaae8004cc74761c4f8.png](evernotecid://60614192-C7C5-4611-9CAC-5D15AB1BE3D8/appyinxiangcom/7169492/ENResource/p13378)
+![multi\_inheritance.jpg](multi_inheritance.jpg)
 
 
 ## Coping with Multiple Inheritance

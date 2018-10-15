@@ -17,7 +17,7 @@ python先是增加了 a = yield  和 .send 作为协程
 ## Basic Behavior of a Generator Used as a Coroutine
 协程有四种状态，创建，运行，暂停，关闭
 刚创建时必须用next()或者.send(None)启动。
-![02163c37573c385448971dfe5626562f.png](evernotecid://60614192-C7C5-4611-9CAC-5D15AB1BE3D8/appyinxiangcom/7169492/ENResource/p13772)
+![coroutine.jpg](coroutine.jpg)
 
 ## Example: Coroutine to Compute a Running Average
 可以实现和第七章闭包类似的功能。

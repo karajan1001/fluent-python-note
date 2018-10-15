@@ -119,20 +119,11 @@ def aritprog_gen(begin, step, end=None):
 ## Generator Functions in the Standard Library
 **os.walk**: 遍历目录的生成器
 
-![717110e6a8ba6344938eee16741f56b8.png](evernotecid://60614192-C7C5-4611-9CAC-5D15AB1BE3D8/appyinxiangcom/7169492/ENResource/p13603)
-![e22c03d807ddf3ce1206186e6e32d256.png](evernotecid://60614192-C7C5-4611-9CAC-5D15AB1BE3D8/appyinxiangcom/7169492/ENResource/p13604)
-![eb9eb6f2604304bf11b3547a0af75a9d.png](evernotecid://60614192-C7C5-4611-9CAC-5D15AB1BE3D8/appyinxiangcom/7169492/ENResource/p13606)
-![0986a62ed8caf0e533e37f8c992afccb.png](evernotecid://60614192-C7C5-4611-9CAC-5D15AB1BE3D8/appyinxiangcom/7169492/ENResource/p13607)
-![6f189308c46f39d4bb79fafc282a74f8.png](evernotecid://60614192-C7C5-4611-9CAC-5D15AB1BE3D8/appyinxiangcom/7169492/ENResource/p13608)
-![3003762c561f7eceab54019e415dc2b2.png](evernotecid://60614192-C7C5-4611-9CAC-5D15AB1BE3D8/appyinxiangcom/7169492/ENResource/p13609)
-
 ## New Syntax in Python 3.3: yield from
 yield from 不光是一个语法糖。作为语法糖时形成一个通道将内部的生成器和外部生成器相连。
 
 ## Iterable Reducing Functions
 这些函数输入序列，输出单个数，这些函数被称为**reduce**,**folding**,**accumulating**函数。
-![138b08668685f8542af8a213eedd1142.png](evernotecid://60614192-C7C5-4611-9CAC-5D15AB1BE3D8/appyinxiangcom/7169492/ENResource/p13610)
-![43de497e15be6feee894f8dcd1aa4bc3.png](evernotecid://60614192-C7C5-4611-9CAC-5D15AB1BE3D8/appyinxiangcom/7169492/ENResource/p13612)
 
 ## A Closer Look at the iter Function
 
