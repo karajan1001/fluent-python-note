@@ -111,7 +111,22 @@ loop.run_in_executor(None, save_flag, image, cc.lower() + '.gif') # 第一个参
 ## Writing asyncio Servers
 
 ### An asyncio TCP Server
+
+启动服务的命令为
+```python
+server_coro = asyncio.start_server(handle_queries, address, port, loop=loop)
+server = loop.run_until_complete(server_coro)
+```
 更底层实现可以参考[Transports and Protocols API](https://docs.python.org/3/library/asyncio-protocol.html)
 
 ### An aiohttp Web Server
+```python
+server = yield from loop.create_server(handler, address, port)
+host = loop.run_until_complete(init(loop, address, port))
+```
+### Smarter Clients for Better Concurrency
+某些请求会长时间阻塞服务端，这时候先返回部分结果，并且解除阻塞，然后使用`AJAX`当用户需要时返回剩余结果将会是一个好选择。要想提高并发的话需要整个架构都支持异步处理。
+
+习题：让`http_charfinder.py`支持渐近下载。
+
 
