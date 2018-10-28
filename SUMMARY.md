@@ -31,4 +31,9 @@
 * [Chapter 15 Context Managers and else Blocks](PARTV/chapter15.md)
 * [Chapter 16 Coroutines](PARTV/chapter16.md)
 * [Chapter 17 Concurrency with Futures](PARTV/chapter17.md)
-* [Chapter 18 CHAPTER 18 Concurrency with asyncio](PARTV/chapter18.md)
+* [Chapter 18 Concurrency with asyncio](PARTV/chapter18.md)
+
+## PART VI Metaprogramming
+
+* [Chapter 19 Dynamic Attributes and Properties](PARTVI/chapter19.md)
+* [Chapter 20 Attribute Descriptors](PARTVI/chapter20.md)
