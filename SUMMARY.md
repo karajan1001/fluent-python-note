@@ -37,3 +37,4 @@
 
 * [Chapter 19 Dynamic Attributes and Properties](PARTVI/chapter19.md)
 * [Chapter 20 Attribute Descriptors](PARTVI/chapter20.md)
+* [Chapter 21 Class Metaprogramming](PARTVI/chapter21.md)

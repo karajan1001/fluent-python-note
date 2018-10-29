@@ -139,3 +139,8 @@ class Text(collections.UserString):
 ## Descriptor docstring and Overriding Deletion
 
 相比`property`,`descriptor`也可以增加`__delete__`方法，不过为其增加注释会比较困难。
+
+
+## 自己两个问题
+- 类方法会覆盖实例的方法？
+- `descriptor`调用变量会有`instance`和`class`
