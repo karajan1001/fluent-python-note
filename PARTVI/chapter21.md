@@ -88,8 +88,57 @@ def entity(cls):
 > `__del__` 在类销毁时会运行。
 
 ## Metaclasses 101
+类生产实例。![class](class.jpg)
+元类生产类。![metaclass](metaclass.jpg)
+python中的类包括`type`本身的元类都是`type`。这个关系和继承关系是不同的，是类似类和实例的关系。
+
+> `type`是`object`的一个子类。`object`是`type`的一个实例。
+
+标准库中还有其他元类比如`Enum`他们既是`type`的实例，又是`type`的子类，继承了`type`建造类的能力。
+
 ### The Metaclass Evaluation Time Exercise
+
+#### `import` 
+- 我的结果:
+100 400 700 1 2 200 4 `500 6 500 9` 15 
+- 答案：
+100 400 700 1 2 200 4 `6 500 9 500` 15
+
+> 先构建类，然后运行元类中的`__init__`。Python解释器，先评估类然后使用元类而不是`type`来构建类。
+
+#### 运行脚本
+- 我的结果:
+100 400 700 1 2 200 4 6 500 9 500 11 300 12 5 13 7 600 14 7 600 15
+- 答案：
+一样。
+
+> 元类和装饰器不同，所有子类都会继承设定。
+
 ## A Metaclass for Customizing Descriptors
+
+```python
+class EntityMeta(type):
+    """Metaclass for business entities with validated fields"""
+    def __init__(cls, name, bases, attr_dict):
+        super().__init__(name, bases, attr_dict) 
+        for key, attr in attr_dict.items():
+            if isinstance(attr, Validated):
+                type_name = type(attr).__name__
+                attr.storage_name = '_{}#{}'.format(type_name, key)
+
+class Entity(metaclass=EntityMeta): """Business entity with validated fields"""
+```
+
+![entity](entity.jpg)
+
 ## The Metaclass `__prepare__` Special Method
 
+`__prepare__`方法是`MetaClass`的一个类方法，这个方法在`__new__`之前被调用。
+
 ## Classes as Objects
+
+- `cls.__bases__`: 此类基类的元包
+- `cls.__qualname__`: 此类的全称（包括所属空间类）
+- `cls.__subclasses__()`: 此类在内存中的子类
+- `cls.mro()`: 
+
